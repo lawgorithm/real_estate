@@ -265,6 +265,13 @@ url9 = streeteasy_url(
         )
     )
 
+desc10 = 'Apartments in The Traymore'
+url10 = streeteasy_url(
+    pars=StreetEasyParams(
+        description='"The Traymore"',
+        )
+    )
+
 descriptions.append(desc1)
 descriptions.append(desc2)
 descriptions.append(desc3)
@@ -274,6 +281,7 @@ descriptions.append(desc6)
 descriptions.append(desc7)
 descriptions.append(desc8)
 descriptions.append(desc9)
+descriptions.append(desc10)
 
 urls.append(url1)
 urls.append(url2)
@@ -284,6 +292,7 @@ urls.append(url6)
 urls.append(url7)
 urls.append(url8)
 urls.append(url9)
+urls.append(url10)
 
 print(desc1)
 print(url1)
@@ -312,13 +321,12 @@ print()
 print(desc9)
 print(url9)
 print()
-
-# print(descriptions)
-# print(urls)
+print(desc10)
+print(url10)
+print()
 
 df = pd.DataFrame({
     'descriptions': descriptions,
     'urls': urls,
 })
 df.to_csv('testy_mctest_streeteasy.csv', index=False)
-# print(df)

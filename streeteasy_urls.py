@@ -1,4 +1,5 @@
 import pandas as pd
+from datetime import date
 
 ROOT_URL = 'https://streeteasy.com/for-sale/nyc'
 
@@ -329,4 +330,5 @@ df = pd.DataFrame({
     'descriptions': descriptions,
     'urls': urls,
 })
-df.to_csv('testy_mctest_streeteasy.csv', index=False)
+today = str(date.today())
+df.to_csv(f'testy_mctest_streeteasy_{today}.csv', index=False)

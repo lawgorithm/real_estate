@@ -2,7 +2,8 @@ name: Daily StreetEasy CSV
 
 on:
   schedule:
-    - cron: "0 22 * * *"  # Runs every day at 2 AM UTC
+    - cron: "0 22 * * *"  # Runs every day at 5 PM EST
+  workflow_dispatch:      # This line allows for manually triggering in the UI
 
 jobs:
   build:

@@ -5,6 +5,9 @@ on:
     - cron: "0 22 * * *"  # Runs every day at 5 PM EST
   workflow_dispatch:      # This line allows for manually triggering in the UI
 
+permissions:
+  contents: write   # give GitHub Actions permission to write the csv 
+
 jobs:
   build:
     runs-on: ubuntu-latest

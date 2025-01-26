@@ -1,0 +1,34 @@
+name: Daily StreetEasy CSV
+
+on:
+  schedule:
+    - cron: "0 22 * * *"  # Runs every day at 2 AM UTC
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies
+        run: |
+          pip install pandas
+          # If you had other dependencies, you'd install them here.
+
+      - name: Run script to generate CSV
+        run: python streeteasy_urls.py
+
+      - name: Commit and push CSV
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          # Use a wildcard to match the date-stamped CSV
+          git add testy_mctest_streeteasy_*.csv
+          git commit -m "Add daily StreetEasy CSV"
+          git push
